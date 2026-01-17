@@ -46,7 +46,10 @@ client.on('messageCreate', async (message) => {
         if (image) embed.setImage(image.url);
 
         // 4. Send the embed to the current channel
-        await message.reply({ embeds: [embed] });
+        await message.reply({ 
+            embeds: [embed],
+            allowedMentions: { repliedUser: false }
+        });
 
     } catch (error) {
         console.error('Could not fetch message:', error);
