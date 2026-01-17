@@ -1,3 +1,4 @@
+require('dotenv').config();
 const { Client, GatewayIntentBits, EmbedBuilder } = require('discord.js');
 const DISCORD_TOKEN = process.env.DISCORD_TOKEN;
 
@@ -53,5 +54,8 @@ client.on('messageCreate', async (message) => {
     }
 });
 
-require('dotenv').config();
+client.once("ready", async () => {
+    console.log(`Logged in as ${client.user.tag}`);
+});
+
 client.login(DISCORD_TOKEN);
